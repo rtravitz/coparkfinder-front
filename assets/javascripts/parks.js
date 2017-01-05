@@ -1,3 +1,4 @@
+require("../stylesheets/materialize.css")
 var API = 'http://localhost:8080';
 
 var onFail = function(err){
@@ -19,7 +20,6 @@ var onGetSuccess = function(parks){
 var getAllParks = function(){
   return $.ajax({
     method: 'GET',
-    crossDomain: true,
     url: API + '/api/v1/parks'
   })
   .done(onGetSuccess)
