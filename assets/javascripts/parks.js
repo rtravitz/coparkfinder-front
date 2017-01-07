@@ -1,4 +1,3 @@
-require("../stylesheets/materialize.css")
 var API = 'http://localhost:8080';
 
 var onFail = function(err){
@@ -6,8 +5,7 @@ var onFail = function(err){
 }
 
 var onGetSuccess = function(parks){
-  parksObj = JSON.parse(parks)
-  $.each(parksObj, function(index, park) {
+  $.each(parks, function(index, park) {
     $('#parks-list').append(
       '<div class="col sm12 m4"><div class="card blue-grey darken-1"><div class="card-content white-text"><span class="card-title">' + park.name +
       '</span>' + '<p>' + park.description.substring(0, 300) + '</p></div>' +
