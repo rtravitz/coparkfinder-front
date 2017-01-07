@@ -21,7 +21,6 @@ var buildParksRequest = function(acts, facs) {
 }
 
 var onGetSuccess = function(parks){
-  $('.page-data').html('')
   $.each(parks, function(index, park) {
     $('.page-data').append(
       '<div class="col sm12 m4"><div class="card blue-grey darken-1"><div class="card-content white-text"><span class="card-title">' + park.name +
@@ -37,6 +36,7 @@ var getParks = function(){
     function() {return this.value;}).get().join("','")
   var actParams = $('input[name="activitiesBox"]:checked').map(
     function() {return this.value;}).get().join("','")
+  $('.page-data').html('').append('<a href="search.html" class="btn waves-effect waves-light">Search Again</a>')
   return $.ajax({
     method: 'GET',
     url: buildParksRequest(actParams, facParams)
@@ -49,9 +49,9 @@ var addActivities = function(acts) {
   $.each(acts, function(index, activity){
     var id = activity.type + index.toString()
     $('#activities-form-options').append(
-      '<p><input name="activitiesBox" type="checkbox" value="'+ activity.type +
+      '<span class="checkbox"><input name="activitiesBox" type="checkbox" value="'+ activity.type +
       '" id="' + id + '"><label for="' + id + '">' + activity.type +
-      '</label></p>'
+      '</label></span>'
     )
   });
 }
@@ -60,9 +60,9 @@ var addFacilities = function(facs) {
   $.each(facs, function(index, facility){
     var id = facility.type + index.toString()
     $('#facilities-form-options').append(
-      '<p><input name="facilitiesBox" type="checkbox" value="'+ facility.type +
+      '<span class="checkbox"><input name="facilitiesBox" type="checkbox" value="'+ facility.type +
       '" id="' + id + '"><label for="' + id + '">' + facility.type +
-      '</label></p>'
+      '</label></span>'
     )
   });
 }
@@ -74,7 +74,7 @@ var buildForm = function(){
     '<h4>Activities</h4><div id="activities-form-options"></div>'+
     '<h4>Facilities</h4>'+
     '<div id="facilities-form-options"></div>'+
-    '<input type="submit" value="Submit" class="btn waves-effect waves-light"'+
+    '<input type="submit" value="Submit" class="btn waves-effect waves-light">'+
     '</form></div>'
   )
   $.ajax({
