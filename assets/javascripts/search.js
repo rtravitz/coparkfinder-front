@@ -37,8 +37,6 @@ var getParks = function(){
     function() {return this.value;}).get().join("','")
   var actParams = $('input[name="activitiesBox"]:checked').map(
     function() {return this.value;}).get().join("','")
-  console.log(facParams);
-  console.log(actParams);
   return $.ajax({
     method: 'GET',
     url: buildParksRequest(actParams, facParams)
@@ -47,7 +45,55 @@ var getParks = function(){
   .fail(onFail)
 }
 
+var addActivities = function(acts) {
+  $.each(acts, function(index, activity){
+    var id = activity.type + index.toString()
+    $('#activities-form-options').append(
+      '<p><input name="activitiesBox" type="checkbox" value="'+ activity.type +
+      '" id="' + id + '"><label for="' + id + '">' + activity.type +
+      '</label></p>'
+    )
+  });
+}
+
+var addFacilities = function(facs) {
+  $.each(facs, function(index, facility){
+    var id = facility.type + index.toString()
+    $('#facilities-form-options').append(
+      '<p><input name="facilitiesBox" type="checkbox" value="'+ facility.type +
+      '" id="' + id + '"><label for="' + id + '">' + facility.type +
+      '</label></p>'
+    )
+  });
+}
+
+var buildForm = function(){
+  $('.page-data').html('')
+  $('.page-data').append(
+    '<div class="container"><form class="park-form"><h2>Find a Park!</h2><hr>'+
+    '<h4>Activities</h4><div id="activities-form-options"></div>'+
+    '<h4>Facilities</h4>'+
+    '<div id="facilities-form-options"></div>'+
+    '<input type="submit" value="Submit" class="btn waves-effect waves-light"'+
+    '</form></div>'
+  )
+  $.ajax({
+    method: 'GET',
+    url: API + '/api/v1/facilities'
+  })
+  .done(addFacilities)
+  .fail(onFail)
+
+  $.ajax({
+    method: 'GET',
+    url: API + '/api/v1/activities'
+  })
+  .done(addActivities)
+  .fail(onFail)
+}
+
 $(document).ready(function(){
+  buildForm()
   $('form').on('submit', getParks);
   $(".button-collapse").sideNav();
   $('form').on('submit', function(event){
