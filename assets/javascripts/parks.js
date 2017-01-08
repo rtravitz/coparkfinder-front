@@ -1,4 +1,4 @@
-var API = 'http://localhost:8080';
+var API = 'https://coparkfinder-api.herokuapp.com/';
 
 var onFail = function(err){
   console.error(err);
