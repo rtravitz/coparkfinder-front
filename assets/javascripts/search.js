@@ -21,14 +21,18 @@ var buildParksRequest = function(acts, facs) {
 }
 
 var onGetSuccess = function(parks){
-  $.each(parks, function(index, park) {
-    $('.page-data').append(
-      '<div class="col sm12 m4"><div class="card blue-grey darken-1"><div class="card-content white-text"><span class="card-title">' + park.name +
-      '</span>' + '<p>' + park.description.substring(0, 300) + '</p></div>' +
-      '<div class="card-action"><a href="' + park.url + '">Visit the Park</a>' +
-      '</div></div></div></div>'
-    );
-  });
+  if (parks.length > 0) {
+    $.each(parks, function(index, park) {
+      $('.page-data').append(
+        '<div class="col sm12 m4"><div class="card blue-grey darken-1"><div class="card-content white-text"><span class="card-title">' + park.name +
+        '</span>' + '<p>' + park.description.substring(0, 300) + '</p></div>' +
+        '<div class="card-action"><a href="' + park.url + '">Visit the Park</a>' +
+        '</div></div></div></div>'
+      );
+    });
+  } else {
+    $('.page-data').append( "<div class=\"container\"><h3>Oh, no! Your dream park doesn't exist!</h3><p>Why don't you try to search again...</p></div>")
+  }
 }
 
 var getParks = function(){
@@ -48,10 +52,10 @@ var getParks = function(){
 var addActivities = function(acts) {
   $.each(acts, function(index, activity){
     var id = activity.type + index.toString()
-    $('#activities-form-options').append(
-      '<span class="checkbox"><input name="activitiesBox" type="checkbox" value="'+ activity.type +
+    $('#activities-form-options > .row').append(
+      '<div class="col sm1 md1"><input name="activitiesBox" type="checkbox" value="'+ activity.type +
       '" id="' + id + '"><label for="' + id + '">' + activity.type +
-      '</label></span>'
+      '</label></div>'
     )
   });
 }
@@ -59,10 +63,10 @@ var addActivities = function(acts) {
 var addFacilities = function(facs) {
   $.each(facs, function(index, facility){
     var id = facility.type + index.toString()
-    $('#facilities-form-options').append(
-      '<span class="checkbox"><input name="facilitiesBox" type="checkbox" value="'+ facility.type +
+    $('#facilities-form-options > .row').append(
+      '<div class="col sm1 md1"><input name="facilitiesBox" type="checkbox" value="'+ facility.type +
       '" id="' + id + '"><label for="' + id + '">' + facility.type +
-      '</label></span>'
+      '</label></div>'
     )
   });
 }
@@ -71,9 +75,9 @@ var buildForm = function(){
   $('.page-data').html('')
   $('.page-data').append(
     '<div class="container"><form class="park-form"><h2>Find a Park!</h2><hr>'+
-    '<h4>Activities</h4><div id="activities-form-options"></div>'+
+    '<h4>Activities</h4><div id="activities-form-options"><div class="row"></div></div>'+
     '<h4>Facilities</h4>'+
-    '<div id="facilities-form-options"></div>'+
+    '<div id="facilities-form-options"><div class="row"></div></div>'+
     '<input type="submit" value="Submit" class="btn waves-effect waves-light">'+
     '</form></div>'
   )
