@@ -4,28 +4,37 @@ var onFail = function(err){
   console.error(err);
 }
 
+var addActivities = function(activities) {
+  var activitiesList = ""
+  $.each(activities, function(index, activity) {
+    if (index < activities.length - 1) {
+      activitiesList += (activity.type + ", ")
+    } else {
+      activitiesList += activity.type
+    }
+  });
+  return activitiesList
+}
+
+var addFacilities = function(facilities) {
+  var facilitiesList = ""
+  $.each(facilities, function(index, facility) {
+    if (index < facilities.length - 1) {
+      facilitiesList += (facility.type + ", ")
+    } else {
+      facilitiesList += facility.type
+    }
+  });
+  return facilitiesList
+}
+
+
 var onGetSuccess = function(park){
   $('#park-name').append(park.name)
   $('#park-description').append(park.description)
   $('#park-site').attr("href", park.url)
-  var facilities = ""
-  $.each(park.facilities, function(index, facility) {
-    if (index < park.facilities.length - 1) {
-      facilities += (facility.type + ", ")
-    } else {
-      facilities += facility.type
-    }
-  });
-  var activities = ""
-  $('#park-facilities').append(facilities)
-  $.each(park.activities, function(index, activity) {
-    if (index < park.activities.length - 1) {
-      activities += (activity.type + ", ")
-    } else {
-      activities += activity.type
-    }
-  });
-  $('#park-activities').append(activities)
+  $('#park-facilities').append(addFacilities(park.facilities))
+  $('#park-activities').append(addActivities(park.activities))
 }
 
 function getParameterByName(name, url) {
