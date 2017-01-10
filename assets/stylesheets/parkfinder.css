@@ -1,11 +1,28 @@
 @font-face {
     font-family: 'Homestead';
     src: url('../fonts/homestead/Homestead-Display.ttf') format('truetype');
-  }
+}
+
+.map-frame {
+  background-color: #e2e2e2;
+  width: 100%;
+  height: 400px;
+  margin-top: 1em;
+  border-radius: 5px;
+  border: none;
+}
+
+#park-name {
+  margin-left: 8px;
+}
 
 .card .card-content .card-title {
   line-height: 1.1em;
   color: #ffb74d;
+}
+
+.home-search-btn {
+  margin-bottom: 5px;
 }
 
 .brand-logo {
@@ -19,7 +36,7 @@
   margin-top: 10px;
 }
 
-h3 {
+h3, h2 {
   color: #2e7d32;
   font-family: "Homestead", "Roboto", sans-serif;
 }
@@ -42,20 +59,34 @@ h6 {
   text-align: center;
 }
 
+.park-row {
+  background: #efebe9;
+  padding-bottom: 20px;
+  margin: 0px;
+}
+
+.act-fac-row {
+  background: #e8f5e9;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  border: solid 1px #2e7d32;
+}
+
 .first-row {
   margin-top: 10px;
   background: #efebe9;
   margin-top: 0px;
-  padding: 5px;
+  padding: 8px;
 }
 
 .second-row {
-  padding: 5px;
+  padding: 8px;
 }
 
 .third-row {
   background: #e8f5e9;
-  padding: 5px;
+  padding: 8px;
 }
 
 .header-img {

@@ -1,16 +1,48 @@
 var API = 'http://localhost:8080';
+var MAP_KEY = 'AIzaSyA1-2s_FzT36ndMWRTSjY2fhTF1od81RJA'
 
 var onFail = function(err){
   console.error(err);
 }
 
+var addActivities = function(activities) {
+  var activitiesList = ""
+  $.each(activities, function(index, activity) {
+    if (index < activities.length - 1) {
+      activitiesList += (activity.type + ", ")
+    } else {
+      activitiesList += activity.type
+    }
+  });
+  return activitiesList
+}
+
+var addFacilities = function(facilities) {
+  var facilitiesList = ""
+  $.each(facilities, function(index, facility) {
+    if (index < facilities.length - 1) {
+      facilitiesList += (facility.type + ", ")
+    } else {
+      facilitiesList += facility.type
+    }
+  });
+  return facilitiesList
+}
+
 var onGetSuccess = function(park){
-  $('#page-data').append(
-    '<div class="col sm12 m4"><div class="card brown"><div class="card-content orange-text text-lighten-5"><a href="park.html?name=' + park.name + '">' + '<span class="card-title">' + park.name +
-    '</span></a>' + '<p>' + park.description + '</p></div>' +
-    '<div class="card-action"><a href="' + park.url + '">Visit the Park</a>' +
-    '</div></div></div></div>'
+  $('#park-name').append(park.name);
+  $('#park-description').append(park.description);
+  $('#park-site').attr("href", park.url);
+  $('#park-facilities').append(addFacilities(park.facilities));
+  $('#park-activities').append(addActivities(park.activities));
+  $('#park-contact').append(
+    '<h5>' + park.street + '</h5>' +
+    '<h5>' + park.city + ', CO ' + park.zip + '</h5>' +
+    '<h5>' + park.email + '</h5>'
   );
+  var map_src = 'https://www.google.com/maps/embed/v1/place?key=' +
+  MAP_KEY + '&q=' + park.name + ',' + park.zip  
+  $('.map-frame').attr("src", map_src)
 }
 
 function getParameterByName(name, url) {
