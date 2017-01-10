@@ -5,12 +5,27 @@ var onFail = function(err){
 }
 
 var onGetSuccess = function(park){
-  $('#page-data').append(
-    '<div class="col sm12 m4"><div class="card brown"><div class="card-content orange-text text-lighten-5"><a href="park.html?name=' + park.name + '">' + '<span class="card-title">' + park.name +
-    '</span></a>' + '<p>' + park.description + '</p></div>' +
-    '<div class="card-action"><a href="' + park.url + '">Visit the Park</a>' +
-    '</div></div></div></div>'
-  );
+  $('#park-name').append(park.name)
+  $('#park-description').append(park.description)
+  $('#park-site').attr("href", park.url)
+  var facilities = ""
+  $.each(park.facilities, function(index, facility) {
+    if (index < park.facilities.length - 1) {
+      facilities += (facility.type + ", ")
+    } else {
+      facilities += facility.type
+    }
+  });
+  var activities = ""
+  $('#park-facilities').append(facilities)
+  $.each(park.activities, function(index, activity) {
+    if (index < park.activities.length - 1) {
+      activities += (activity.type + ", ")
+    } else {
+      activities += activity.type
+    }
+  });
+  $('#park-activities').append(activities)
 }
 
 function getParameterByName(name, url) {
