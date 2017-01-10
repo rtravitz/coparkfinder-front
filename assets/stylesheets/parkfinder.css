@@ -1,0 +1,119 @@
+@font-face {
+    font-family: 'Homestead';
+    src: url('../fonts/homestead/Homestead-Display.ttf') format('truetype');
+  }
+
+.card .card-content .card-title {
+  line-height: 1.1em;
+  color: #ffb74d;
+}
+
+.brand-logo {
+  font-family: 'Homestead', 'Roboto', sans-serif;
+}
+
+.park-form-container {
+  background: #efebe9;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+h3 {
+  color: #2e7d32;
+  font-family: "Homestead", "Roboto", sans-serif;
+}
+
+h6 {
+  color: #9e9e9e;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.center-btn {
+  text-align: center;
+}
+
+.first-row {
+  margin-top: 10px;
+  background: #efebe9;
+  margin-top: 0px;
+  padding: 5px;
+}
+
+.second-row {
+  padding: 5px;
+}
+
+.third-row {
+  background: #e8f5e9;
+  padding: 5px;
+}
+
+.header-img {
+  display: block;
+  width: 100%;
+  height: 300px;
+}
+
+.home-icon {
+  width: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#loading-tree {
+  display: none;
+  width: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 8px;
+  margin-top: 2%;
+}
+
+.spinning {
+     -webkit-animation-name: spinner;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 1s;
+    animation-name: spinner;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+@-webkit-keyframes spinner {
+    from {
+        -webkit-transform: rotateY(0deg);
+    }
+    to {
+        -webkit-transform: rotateY(-360deg);
+    }
+} /* all other browsers */
+@keyframes spinner {
+    from {
+        -moz-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+    to
+    {
+        -moz-transform: rotateY(-360deg);
+        -ms-transform: rotateY(-360deg);
+        transform: rotateY(-360deg);
+
+    }
+}
