@@ -12,6 +12,11 @@ var onGetSuccess = function(parks){
       '<div class="card-action"><a href="' + park.url + '">Visit the Park</a>' +
       '</div></div></div></div>'
     );
+    if ((index + 1) % 3 == 0) {
+      $('#parks-list').append(
+        '<div class="clearfix"></div>'
+      );
+    }
   });
 }
 

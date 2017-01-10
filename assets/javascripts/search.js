@@ -1,4 +1,4 @@
-var API = 'http://localhost:8080/';
+var API = 'https://coparkfinder-api.herokuapp.com';
 
 var onFail = function(err){
   console.error(err);
@@ -29,6 +29,11 @@ var onGetSuccess = function(parks){
         '<div class="card-action"><a href="' + park.url + '">Visit the Park</a>' +
         '</div></div></div></div>'
       );
+      if (index + 1 % 3 == 0) {
+        $('.page-data').append(
+          '<div class="clearfix"></div>'
+        );
+      }
     });
   } else {
     $('.page-data').append( "<div class=\"container\"><h3>Oh, no! Your dream park doesn't exist!</h3><p>Why don't you try to search again...</p></div>")
@@ -43,7 +48,13 @@ var getParks = function(){
   $('.page-data').html('').append('<a href="search.html" class="btn waves-effect waves-light">Search Again</a>')
   return $.ajax({
     method: 'GET',
-    url: buildParksRequest(actParams, facParams)
+    url: buildParksRequest(actParams, facParams),
+    beforeSend: function() {
+      $('#loading-tree').css("display", "block");
+    },
+    complete: function() {
+      $('#loading-tree').css("display", "none");
+    }
   })
   .done(onGetSuccess)
   .fail(onFail)
