@@ -33,8 +33,8 @@ var onGetSuccess = function(parks){
   if (parks.length > 0) {
     $.each(parks, function(index, park) {
       $('.page-data').append(
-        '<div class="col sm12 m4"><div class="card brown"><div class="card-content orange-text text-lighten-5"><span class="card-title">' + park.name +
-        '</span>' + '<p>' + truncate(park.description) + '</p></div>' +
+        '<div class="col s12 m4"><div class="card brown"><div class="card-content orange-text text-lighten-5"><a href="park.html?name=' + park.name +  '">' + '<span class="card-title">' + park.name +
+        '</span></a>' + '<p>' + truncate(park.description) + '</p></div>' +
         '<div class="card-action"><a href="' + park.url + '">Visit the Park</a>' +
         '</div></div></div></div>'
       );
