@@ -1,5 +1,15 @@
+@font-face {
+    font-family: 'Homestead';
+    src: url('../fonts/homestead/Homestead-Display.ttf') format('truetype');
+  }
+
+.brand-logo {
+  font-family: 'Homestead', 'Roboto', sans-serif;
+}
+
 h3 {
   color: #2e7d32;
+  font-family: "Homestead", "Roboto", sans-serif;
 }
 
 h6 {
@@ -16,26 +26,24 @@ h6 {
   clear: both;
 }
 
-.first-row {
-  margin-top: 10px;
-  background: #efebe9;
-  margin-top: 0px;
-  padding-bottom: 1px;
-}
-
 .center-btn {
   text-align: center;
 }
 
-.second-row {
-  padding: 1px;
+.first-row {
+  margin-top: 10px;
+  background: #efebe9;
+  margin-top: 0px;
+  padding: 5px;
+}
 
+.second-row {
+  padding: 5px;
 }
 
 .third-row {
   background: #e8f5e9;
-  padding: 1px;
-
+  padding: 5px;
 }
 
 .header-img {

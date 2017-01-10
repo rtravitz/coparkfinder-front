@@ -1,4 +1,4 @@
-var API = 'https://coparkfinder-api.herokuapp.com';
+var API = 'http://localhost:8080';
 
 var onFail = function(err){
   console.error(err);
@@ -24,7 +24,7 @@ var onGetSuccess = function(parks){
   if (parks.length > 0) {
     $.each(parks, function(index, park) {
       $('.page-data').append(
-        '<div class="col sm12 m4"><div class="card blue-grey darken-1"><div class="card-content white-text"><span class="card-title">' + park.name +
+        '<div class="col sm12 m4"><div class="card brown"><div class="card-content white-text"><span class="card-title">' + park.name +
         '</span>' + '<p>' + park.description.substring(0, 300) + '</p></div>' +
         '<div class="card-action"><a href="' + park.url + '">Visit the Park</a>' +
         '</div></div></div></div>'
@@ -85,7 +85,7 @@ var addFacilities = function(facs) {
 var buildForm = function(){
   $('.page-data').html('')
   $('.page-data').append(
-    '<div class="container"><form class="park-form"><h2>Find a Park!</h2><hr>'+
+    '<div class="container"><form class="park-form"><h3>Find a Park!</h3><hr>'+
     '<h4>Activities</h4><div id="activities-form-options"><div class="row"></div></div>'+
     '<h4>Facilities</h4>'+
     '<div id="facilities-form-options"><div class="row"></div></div>'+
