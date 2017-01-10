@@ -3,6 +3,11 @@
     src: url('../fonts/homestead/Homestead-Display.ttf') format('truetype');
   }
 
+.card .card-content .card-title {
+  line-height: 1.1em;
+  color: #ffb74d;
+}
+
 .brand-logo {
   font-family: 'Homestead', 'Roboto', sans-serif;
 }
