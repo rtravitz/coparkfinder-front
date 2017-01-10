@@ -21,6 +21,10 @@
   color: #ffb74d;
 }
 
+.home-search-btn {
+  margin-bottom: 5px;
+}
+
 .brand-logo {
   font-family: 'Homestead', 'Roboto', sans-serif;
 }
@@ -73,16 +77,16 @@ h6 {
   margin-top: 10px;
   background: #efebe9;
   margin-top: 0px;
-  padding: 5px;
+  padding: 8px;
 }
 
 .second-row {
-  padding: 5px;
+  padding: 8px;
 }
 
 .third-row {
   background: #e8f5e9;
-  padding: 5px;
+  padding: 8px;
 }
 
 .header-img {
