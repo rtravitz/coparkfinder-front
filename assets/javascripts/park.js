@@ -1,4 +1,5 @@
 var API = 'http://localhost:8080';
+var MAP_KEY = 'AIzaSyA1-2s_FzT36ndMWRTSjY2fhTF1od81RJA'
 
 var onFail = function(err){
   console.error(err);
@@ -28,13 +29,20 @@ var addFacilities = function(facilities) {
   return facilitiesList
 }
 
-
 var onGetSuccess = function(park){
-  $('#park-name').append(park.name)
-  $('#park-description').append(park.description)
-  $('#park-site').attr("href", park.url)
-  $('#park-facilities').append(addFacilities(park.facilities))
-  $('#park-activities').append(addActivities(park.activities))
+  $('#park-name').append(park.name);
+  $('#park-description').append(park.description);
+  $('#park-site').attr("href", park.url);
+  $('#park-facilities').append(addFacilities(park.facilities));
+  $('#park-activities').append(addActivities(park.activities));
+  $('#park-contact').append(
+    '<h5>' + park.street + '</h5>' +
+    '<h5>' + park.city + ', CO ' + park.zip + '</h5>' +
+    '<h5>' + park.email + '</h5>'
+  );
+  var map_src = 'https://www.google.com/maps/embed/v1/place?key=' +
+  MAP_KEY + '&q=' + park.name + ',' + park.zip  
+  $('.map-frame').attr("src", map_src)
 }
 
 function getParameterByName(name, url) {
