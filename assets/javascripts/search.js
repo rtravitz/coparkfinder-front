@@ -4,6 +4,15 @@ var onFail = function(err){
   console.error(err);
 }
 
+var truncate = function(input) {
+  var array = input.split(" ");
+  var shortened = array.splice(0, 50).join(" ");
+  if (array.length > 50) {
+    shortened += "...";
+  }
+  return shortened;
+}
+
 var buildParksRequest = function(acts, facs) {
   queryUrl = API + '/api/v1/parks?'
   if (acts.length > 0) {
@@ -25,7 +34,7 @@ var onGetSuccess = function(parks){
     $.each(parks, function(index, park) {
       $('.page-data').append(
         '<div class="col sm12 m4"><div class="card brown"><div class="card-content orange-text text-lighten-5"><span class="card-title">' + park.name +
-        '</span>' + '<p>' + park.description.substring(0, 300) + '</p></div>' +
+        '</span>' + '<p>' + truncate(park.description) + '</p></div>' +
         '<div class="card-action"><a href="' + park.url + '">Visit the Park</a>' +
         '</div></div></div></div>'
       );
@@ -85,7 +94,7 @@ var addFacilities = function(facs) {
 var buildForm = function(){
   $('.page-data').html('')
   $('.page-data').append(
-    '<div class="container"><form class="park-form"><h3>Find a Park!</h3><hr>'+
+    '<div class="container park-form-container"><form class="park-form"><h3>Find a Park!</h3><hr>'+
     '<h4>Activities</h4><div id="activities-form-options"><div class="row"></div></div>'+
     '<h4>Facilities</h4>'+
     '<div id="facilities-form-options"><div class="row"></div></div>'+

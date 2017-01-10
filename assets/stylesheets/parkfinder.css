@@ -12,6 +12,13 @@
   font-family: 'Homestead', 'Roboto', sans-serif;
 }
 
+.park-form-container {
+  background: #efebe9;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
 h3 {
   color: #2e7d32;
   font-family: "Homestead", "Roboto", sans-serif;
