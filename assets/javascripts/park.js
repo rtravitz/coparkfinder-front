@@ -1,4 +1,4 @@
-var API = 'http://localhost:8080';
+var API = 'https://coparkfinder-api.herokuapp.com';
 var MAP_KEY = 'AIzaSyA1-2s_FzT36ndMWRTSjY2fhTF1od81RJA'
 
 var onFail = function(err){
@@ -41,7 +41,7 @@ var onGetSuccess = function(park){
     '<h5>' + park.email + '</h5>'
   );
   var map_src = 'https://www.google.com/maps/embed/v1/place?key=' +
-  MAP_KEY + '&q=' + park.name + ',' + park.zip  
+  MAP_KEY + '&q=' + park.name + ',' + park.zip
   $('.map-frame').attr("src", map_src)
 }
 
