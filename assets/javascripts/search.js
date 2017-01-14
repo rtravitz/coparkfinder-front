@@ -73,7 +73,7 @@ var addActivities = function(acts) {
   $.each(acts, function(index, activity){
     var id = activity.type + index.toString()
     $('#activities-form-options > .row').append(
-      '<div class="col sm1 md1"><input name="activitiesBox" type="checkbox" value="'+ activity.type +
+      '<div class="col s6 m3"><input name="activitiesBox" type="checkbox" value="'+ activity.type +
       '" id="' + id + '"><label for="' + id + '">' + activity.type +
       '</label></div>'
     )
@@ -84,7 +84,7 @@ var addFacilities = function(facs) {
   $.each(facs, function(index, facility){
     var id = facility.type + index.toString()
     $('#facilities-form-options > .row').append(
-      '<div class="col sm1 md1"><input name="facilitiesBox" type="checkbox" value="'+ facility.type +
+      '<div class="col s6 m3"><input name="facilitiesBox" type="checkbox" value="'+ facility.type +
       '" id="' + id + '"><label for="' + id + '">' + facility.type +
       '</label></div>'
     )
@@ -94,7 +94,7 @@ var addFacilities = function(facs) {
 var buildForm = function(){
   $('.page-data').html('')
   $('.page-data').append(
-    '<div class="container park-form-container"><form class="park-form"><h3>Find a Park!</h3><hr>'+
+    '<div class="park-form-container"><form class="park-form"><h3>Find a Park!</h3><hr>'+
     '<h4>Activities</h4><div id="activities-form-options"><div class="row"></div></div>'+
     '<h4>Facilities</h4>'+
     '<div id="facilities-form-options"><div class="row"></div></div>'+
