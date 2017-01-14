@@ -91,7 +91,7 @@ h6 {
 
 .header-img {
   display: block;
-  width: 100%;
+  width: auto;
   height: 300px;
 }
 
@@ -100,6 +100,27 @@ h6 {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+#dorado-header-img {
+  background-image: url("../images/dorado_small.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
+
+#picnic-header-img {
+  background-image: url("../images/picnic_small.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
+
+#river-header-img {
+  background-image: url("../images/11_mile_small.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
 }
 
 #loading-tree {
@@ -133,7 +154,8 @@ h6 {
     to {
         -webkit-transform: rotateY(-360deg);
     }
-} /* all other browsers */
+}
+
 @keyframes spinner {
     from {
         -moz-transform: rotateY(0deg);
