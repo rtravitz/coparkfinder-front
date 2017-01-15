@@ -2,7 +2,7 @@ This repository is part of a larger project that also includes:
 * [API](https://github.com/rtravitz/coparkfinder)
 * [Alexa Skill](https://github.com/rtravitz/coparkfinder-alexa)
 
-The frontend is [available in production.](http://coparkfinder.com/).
+The frontend is [available in production](http://coparkfinder.com/).
 
 -------------------
 ## Overview
